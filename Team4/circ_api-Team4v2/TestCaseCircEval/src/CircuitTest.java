@@ -166,8 +166,20 @@ public class CircuitTest extends TestCase {
     	
 
      }
-
-
     
+    /**
+     * Test to access the evaluate of version 1, which is not accaible by version 2
+     */
+    public void testPublicv1Version() {
+    	BufferGate input1 = new BufferGate();
+    	BufferGate input2 = new BufferGate();
+    	AndGate and = new AndGate(input1, input2);
+    	
+    	input1.setValue(true);
+    	input2.setValue(true);
+    	//this cannot compile
+    	//assertEquals(true, and.evaluate());
+    	fail("Cannot compile");
+    }
 }
 
