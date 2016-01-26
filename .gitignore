@@ -24,3 +24,4 @@ target/* /target/
 *.ear
 
 /APIBreaking/target/
+/APIBreakingv1/target/
