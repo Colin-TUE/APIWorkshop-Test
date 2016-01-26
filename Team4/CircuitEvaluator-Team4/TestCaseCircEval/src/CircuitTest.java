@@ -115,10 +115,50 @@ public class CircuitTest extends TestCase {
     	
     	input1.setValue(true);
     	input2.setValue(true);
-    	//this cannot compile
-    	//assertEquals(true, and.evaluate());
-    	fail("Cannot compile");
+    	//this cannot compile in the newer version.
+    	assertEquals(true, and.evaluate());
     }
     
+    public void testAddedBoolOperator() {
+    	BufferGate input1 = new BufferGate();
+    	BufferGate input2 = new BufferGate();
+    	AndGate2 and = new AndGate2(input1, input2);
+    	
+    	input1.setValue(true);
+    	input2.setValue(true);
+    	//this cannot compile in the newer version.
+    	assertEquals(true, and.evaluate());
+    }
+    
+    public void testIsBoolException() {
+    	InputGate input1 = new InputGate();
+    	InputGate input2 = new InputGate();
+    	AndGate2 and = new AndGate2(input1, input2);
+    	
+    	input1.setBool(true);
+    	input2.setBool(false);
+    	//this cannot compile in the newer version.
+    	assertEquals(2.0, input1.evaluateD());
+    	assertEquals(2.0, input2.evaluateD());
+    	//should not thrown an exception
+    }
+    
+    public void testCircuitResult() {
+    	BufferGate input1 = new BufferGate();
+    	BufferGate input2 = new BufferGate();
+    	AndGate2 and = new AndGate2(input1, input2);
+    	
+    	Circuit Cir = new Circuit();
+    	Cir.setOutput(and);
+    	
+    	assertEquals(true, Cir.evalCircuit());
+    	//uncomment next line to get functional incomb
+    	boolean x = Cir.evalCircuit();
+    	
+    	Object x1 = (Object) Cir.evalCircuit();
+    	assertEquals(true, x1);
+    }
 }
+
+
 

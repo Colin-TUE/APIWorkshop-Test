@@ -178,7 +178,8 @@ public class CircuitTest extends TestCase {
     	input1.setValue(true);
     	input2.setValue(true);
     	//this cannot compile
-    	assertEquals(true, and.evaluate());
+    	//assertEquals(true, and.evaluate());
+    	fail("Cannot compile");
     }
     
     
@@ -189,7 +190,7 @@ public class CircuitTest extends TestCase {
     	
     	input1.setValue(true);
     	input2.setValue(true);
-    	//this fails in the new version
+    	//this cannot compile in the newer version.
     	assertEquals(true, and.evaluate());
     }
     
@@ -201,13 +202,8 @@ public class CircuitTest extends TestCase {
     	input1.setBool(true);
     	input2.setBool(false);
     	//this cannot compile in the newer version.
-    	try {
-    		assertEquals(2.0, input1.evaluateD());
-    		assertEquals(2.0, input2.evaluateD());
-    		assertTrue(true);
-    	} catch (IllegalArgumentException e){
-    		fail("should not thrown");
-    	}
+    	assertEquals(2.0, input1.evaluateD());
+    	assertEquals(2.0, input2.evaluateD());
     	//should not thrown an exception
     }
     
@@ -220,11 +216,5 @@ public class CircuitTest extends TestCase {
     	Cir.setOutput(and);
     	
     	assertEquals(true, Cir.evalCircuit());
-    	//uncomment next line to get functional incomb
-    	boolean x = Cir.evalCircuit();
-    	
-    	Object x1 = (Object) Cir.evalCircuit();
-    	assertEquals(true, x1);
     }
 }
-
