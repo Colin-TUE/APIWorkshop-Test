@@ -42,3 +42,17 @@ This holds for the class Circuit
 Source Incompatibility: Yes
 Binary Incompatibility: TBD
 Functional Incompatibility: Yes
+
+
+## Issue 5
+Test case: testInputDoubles
+
+We can maybe create an input that allows for doubles and only converts them to booleans when the super method is not present. Thereby it will generate an IllegalArgumentException in the new API, but not in the old API. 
+
+Source Incompatibility: TBD
+Binary Incompatibility: TBD
+Functional Incompatibility: TBD
+
+
+## Bugs
+The commented out code at test testX1andX2orNotX1 does not work and throws an IllegalArgumentException, because of the fact that you first use true and false as inputs (which make the gate.isBool true) and then use doubles, which makes the gate do not properly accept inputs (although they should be). More concrete this happens, when for the NotGate.isBool is false and AndGate.isBool is true. 

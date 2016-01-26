@@ -119,26 +119,26 @@ public class CircuitTest extends TestCase {
     	X2.setValue(false);
     	assertEquals(false, C1.evalCircuit());
     	
-//    	X1.setValue(false);
-//    	X2.setValue(true);
-//    	assertEquals(true, C1.evalCircuit());
-//    	
-//    	X1.setValue(0.0);
-//    	X2.setValue(1.0);
-//    	assertEquals(1.0, C1.evalCircuit());
-//    	
-//    	X1.setValue(0.5);
-//    	X2.setValue(0.5);
-//    	assertEquals(0.625, C1.evalCircuit());
+    	X1.setValue(false);
+    	X2.setValue(true);
+    	assertEquals(true, C1.evalCircuit());
     	
-//    	try{
-//    		X1.setValue(0.5);
-//        	X2.setValue(2.0);
-//    	}
-//    	catch(IllegalArgumentException e)
-//    	{
-//    		assertEquals(true, true);
-//    	}
+    	/*X1.setValue(0.0);
+    	X2.setValue(1.0);
+    	assertEquals(1.0, C1.evalCircuit());
+    	
+    	X1.setValue(0.5);
+    	X2.setValue(0.5);
+    	assertEquals(0.625, C1.evalCircuit());*/
+    	
+    	try{
+    		X1.setValue(0.5);
+        	X2.setValue(2.0);
+    	}
+    	catch(IllegalArgumentException e)
+    	{
+    		assertEquals(true, true);
+    	}
     }
     
     public void testGreaterThanElement() {
@@ -225,6 +225,20 @@ public class CircuitTest extends TestCase {
     	
     	Object x1 = (Object) Cir.evalCircuit();
     	assertEquals(true, x1);
+    }
+    
+    public void testInputDoubles() {
+    	InputDoubleGate input1 = new InputDoubleGate();
+    	InputDoubleGate input2 = new InputDoubleGate();
+    	AndGate2 and = new AndGate2(input1, input2);
+    	
+    	input1.setValue(true);
+    	input2.setValue(2.0);
+    	
+    	Circuit Cir = new Circuit();
+    	Cir.setOutput(and);
+    	
+    	assertEquals(1.0, Cir.evalCircuit());
     }
 }
 

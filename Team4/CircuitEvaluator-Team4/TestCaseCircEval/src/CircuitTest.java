@@ -158,6 +158,20 @@ public class CircuitTest extends TestCase {
     	Object x1 = (Object) Cir.evalCircuit();
     	assertEquals(true, x1);
     }
+    
+    public void testInputDoubles() {
+    	InputDoubleGate input1 = new InputDoubleGate();
+    	InputDoubleGate input2 = new InputDoubleGate();
+    	AndGate2 and = new AndGate2(input1, input2);
+    	
+    	input1.setValue(true);
+    	input2.setValue(2.0);
+    	
+    	Circuit Cir = new Circuit();
+    	Cir.setOutput(and);
+    	
+    	assertEquals(true, Cir.evalCircuit());
+    }
 }
 
 
