@@ -17,8 +17,8 @@ In the new version the function evaluate returns double, while in the old versio
 
 This holds for all Gates and the function evaluate().
 
-Source Incompatibility: Yes
-Binary Incompatibility: Yes => show test case for that
+Source Incompatibility: Yes => TBD if it really is source incomb => testCircuirResult similar
+Binary Incompatibility: Yes => show test case for that => testCircuirResult similar
 Functional Incompatibility: Yes => show test case for this by using object
 
 ## Issue 3 => To be tested and checked if it is an issue
