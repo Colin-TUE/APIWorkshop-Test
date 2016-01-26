@@ -181,5 +181,8 @@ public class CircuitTest extends TestCase {
     	//assertEquals(true, and.evaluate());
     	fail("Cannot compile");
     }
+    
+    
+   
 }
 

@@ -115,7 +115,9 @@ public class CircuitTest extends TestCase {
     	
     	input1.setValue(true);
     	input2.setValue(true);
-    	assertEquals(true, and.evaluate());
+    	//this cannot compile
+    	//assertEquals(true, and.evaluate());
+    	fail("Cannot compile");
     }
     
 }
