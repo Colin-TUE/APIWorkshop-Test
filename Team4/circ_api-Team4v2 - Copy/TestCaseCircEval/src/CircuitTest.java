@@ -119,26 +119,26 @@ public class CircuitTest extends TestCase {
     	X2.setValue(false);
     	assertEquals(false, C1.evalCircuit());
     	
-    	X1.setValue(false);
-    	X2.setValue(true);
-    	assertEquals(true, C1.evalCircuit());
+//    	X1.setValue(false);
+//    	X2.setValue(true);
+//    	assertEquals(true, C1.evalCircuit());
+//    	
+//    	X1.setValue(0.0);
+//    	X2.setValue(1.0);
+//    	assertEquals(1.0, C1.evalCircuit());
+//    	
+//    	X1.setValue(0.5);
+//    	X2.setValue(0.5);
+//    	assertEquals(0.625, C1.evalCircuit());
     	
-    	/*X1.setValue(0.0);
-    	X2.setValue(1.0);
-    	assertEquals(1.0, C1.evalCircuit());
-    	
-    	X1.setValue(0.5);
-    	X2.setValue(0.5);
-    	assertEquals(0.625, C1.evalCircuit());*/
-    	
-    	try{
-    		X1.setValue(0.5);
-        	X2.setValue(2.0);
-    	}
-    	catch(IllegalArgumentException e)
-    	{
-    		assertEquals(true, true);
-    	}
+//    	try{
+//    		X1.setValue(0.5);
+//        	X2.setValue(2.0);
+//    	}
+//    	catch(IllegalArgumentException e)
+//    	{
+//    		assertEquals(true, true);
+//    	}
     }
     
     public void testGreaterThanElement() {
@@ -178,7 +178,8 @@ public class CircuitTest extends TestCase {
     	input1.setValue(true);
     	input2.setValue(true);
     	//this cannot compile
-    	assertEquals(true, and.evaluate());
+    	//assertEquals(true, and.evaluate());
+    	fail("Cannot compile");
     }
     
     
@@ -189,7 +190,7 @@ public class CircuitTest extends TestCase {
     	
     	input1.setValue(true);
     	input2.setValue(true);
-    	//this fails in the new version
+    	//this cannot compile in the newer version.
     	assertEquals(true, and.evaluate());
     }
     
@@ -201,13 +202,8 @@ public class CircuitTest extends TestCase {
     	input1.setBool(true);
     	input2.setBool(false);
     	//this cannot compile in the newer version.
-    	try {
-    		assertEquals(2.0, input1.evaluateD());
-    		assertEquals(2.0, input2.evaluateD());
-    		assertTrue(true);
-    	} catch (IllegalArgumentException e){
-    		fail("should not thrown");
-    	}
+    	assertEquals(2.0, input1.evaluateD());
+    	assertEquals(2.0, input2.evaluateD());
     	//should not thrown an exception
     }
     
@@ -220,25 +216,5 @@ public class CircuitTest extends TestCase {
     	Cir.setOutput(and);
     	
     	assertEquals(true, Cir.evalCircuit());
-    	//uncomment next line to get functional incomb
-    	boolean x = Cir.evalCircuit();
-    	
-    	Object x1 = (Object) Cir.evalCircuit();
-    	assertEquals(true, x1);
-    }
-    
-    public void testInputDoubles() {
-    	InputDoubleGate input1 = new InputDoubleGate();
-    	InputDoubleGate input2 = new InputDoubleGate();
-    	AndGate2 and = new AndGate2(input1, input2);
-    	
-    	input1.setValue(true);
-    	input2.setValue(2.0);
-    	
-    	Circuit Cir = new Circuit();
-    	Cir.setOutput(and);
-    	
-    	assertEquals(1.0, Cir.evalCircuit());
     }
 }
-
