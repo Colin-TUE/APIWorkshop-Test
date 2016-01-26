@@ -13,6 +13,7 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 .netbeans_automatic_build
+target/* /target/
 
 # Class Files #
 *.class
