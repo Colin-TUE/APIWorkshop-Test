@@ -17,7 +17,7 @@ public class AndGate2 extends AndGate {
 	}*/
 	
 	//this is for the new API
-	public double evaluate() {
+	public boolean evaluate() {
 		isBool = true;
 		return 1.0;
 	}
