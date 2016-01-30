@@ -17,6 +17,7 @@ This holds for all Gates and the function evaluate().
 
 Source Incompatibility: Yes
 Binary Incompatibility: Yes
+Functional Incompatibility: 
 
 ## Issue 2
 Test Case: testAddedBoolOperator()
@@ -28,18 +29,7 @@ Source Incompatibility: Yes
 Binary Incompatibility: Yes
 Functional Incompatibility: Yes, by using object and print it and check the assert()
 
-## Issue 3 => To be tested and checked if it is an issue
-Test case: testAddedBoolOperator
-
-In the new version there is an attribute isBool and this was not present in the old version. Hence we can create an extension with this attribute of a different type or scope and it will not compile in the new one. 
-
-This holds for all Gates and the attribute isBool.
-
-Source Incompatibility: TBD
-Binary Incompatibility: TBD
-Functional Incompatibility: TBD
-
-## Issue 4
+## Issue 3
 test Case: testCircuitResult()
 The circuit return type is changed from boolean to Object. This leads to a compile error and a function result difference. 
 
@@ -50,7 +40,7 @@ Binary Incompatibility: Yes
 Functional Incompatibility: Yes
 
 
-## Issue 5
+## Issue 4
 Test case: testInputDoubles
 
 We can maybe create an input that allows for doubles and only converts them to booleans when the super method is not present. Thereby it will generate an IllegalArgumentException in the new API, but not in the old API. 
