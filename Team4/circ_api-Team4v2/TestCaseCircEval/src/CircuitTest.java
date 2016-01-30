@@ -65,46 +65,33 @@ public class CircuitTest extends TestCase {
     	input1.setValue(true);
     	input2.setValue(true);
     	
-    	//SRC    	
-    	boolean x = and.evaluate();
     	//FUN
-    	Object y = and.evaluate();
+    	Object y = and.evaluateObject();
     	System.out.println("AddedBoolTest: " + y.toString());
-    	//FUN
-    	assertEquals(true, and.evaluate());
-    }
-    
-    public void testIsBoolException() {
-    	InputGate input1 = new InputGate();
-    	InputGate input2 = new InputGate();
-    	AndGate2 and = new AndGate2(input1, input2);
+    	assertEquals(true, and.evaluateObject());
     	
-    	input1.setBool(true);
-    	input2.setBool(false);
-    	//this cannot compile in the newer version.
-    	try {
-    		assertEquals(2.0, input1.evaluateD());
-    		assertEquals(2.0, input2.evaluateD());
-    		assertTrue(true);
-    	} catch (IllegalArgumentException e){
-    		fail("should not thrown");
-    	}
-    	//should not thrown an exception
+    	//SRC
+    	boolean x = and.evaluate();
     }
     
     public void testCircuitResult() {
     	BufferGate input1 = new BufferGate();
     	BufferGate input2 = new BufferGate();
     	AndGate2 and = new AndGate2(input1, input2);
-    	
+    	  	
     	Circuit Cir = new Circuit();
     	Cir.setOutput(and);
     	
-    	//SRC
-    	boolean x = Cir.evalCircuit();
+    	input1.setValue(true);
+    	input2.setValue(true);
+    	
     	//FUN
     	Object x1 = Cir.evalCircuit();
     	System.out.println("CircuitResultTest: "+ x1.toString());
+    	
+    	//SRC
+    	boolean x = Cir.evalCircuit();
+    	
     	assertEquals(true, x1);
      	assertEquals(true, Cir.evalCircuit());
     }
@@ -119,6 +106,7 @@ public class CircuitTest extends TestCase {
     		input2.setValue(2.0);
     		assertTrue(true);
     	} catch (IllegalArgumentException e) {
+    		//FUN
     		fail("Should not throw exception");
     	}
     }
