@@ -52,3 +52,5 @@ Functional Incompatibility: Yes, as now a exception is thrown
 
 ## Bugs
 The commented out code at test testX1andX2orNotX1 does not work and throws an IllegalArgumentException, because of the fact that you first use true and false as inputs (which make the gate.isBool true) and then use doubles, which makes the gate do not properly accept inputs (although they should be). More concrete this happens, when for the NotGate.isBool is false and AndGate.isBool is true. 
+
+GTE should be in the domain of the user and not in your package.
