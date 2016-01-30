@@ -1,4 +1,10 @@
-# Backwards Incompatibility Team 4
+# Backwards Incompatibility Team 3
+
+- Source Incompatibility is in Idea projects
+- Binary Incompatibility is in the workspace "workspace4" (Contains suite and change jars). Run TestSuite Jar from Compiled. 
+    * So first export to JAR using circeval.jar in seperate folder. 
+    * Then change the lib jar with corresponding version
+    * Run from command line using "java -jar testSuite.jar"
 
 ## Issue 1
 Test Case: EvaluateAnd() and BinaryLogicExpressionTest()
