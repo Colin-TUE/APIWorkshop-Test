@@ -31,6 +31,7 @@ public class CircuitTest extends TestCase{
 		and1.eval();
 		or1.setLeftInput(and1.getOutput());
 		or1.setRightInput(Boolean.FALSE);
+		assertEquals(Boolean.FALSE,  or1.eval());
 		assertFalse(or1.eval());
 	}
 
