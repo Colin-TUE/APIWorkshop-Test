@@ -17,7 +17,7 @@ This holds for all Gates and the function evaluate().
 
 Source Incompatibility: Yes
 Binary Incompatibility: Yes
-Functional Incompatibility: 
+Functional Incompatibility: No
 
 ## Issue 2
 Test Case: testAddedBoolOperator()
@@ -37,7 +37,7 @@ This holds for the class Circuit
 
 Source Incompatibility: Yes
 Binary Incompatibility: Yes
-Functional Incompatibility: Yes
+Functional Incompatibility: Yes, see print statement again
 
 
 ## Issue 4
@@ -47,7 +47,7 @@ We can maybe create an input that allows for doubles and only converts them to b
 
 Source Incompatibility: No
 Binary Incompatibility: No
-Functional Incompatibility: Yes
+Functional Incompatibility: Yes, as now a exception is thrown
 
 
 ## Bugs
