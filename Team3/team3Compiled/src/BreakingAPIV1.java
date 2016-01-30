@@ -1,5 +1,3 @@
-package test;
-
 import junit.framework.TestCase;
 import main.apicircuit.BinaryLogicalExpression;
 import main.apicircuit.Element;
